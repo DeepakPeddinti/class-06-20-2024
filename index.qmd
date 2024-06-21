@@ -1,0 +1,21 @@
+---
+title: "Music Genres Boxplot"
+execute:
+  echo: false
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+```
+
+```{r}
+#| message: false
+x<-read_csv(file="data/music_genre.csv", show_col_types=FALSE)
+```
+
+
+```{r}
+#| message: false
+x |> drop_na()|> mutate(music_genre=fct_reorder(music_genre, popularity,.desc=TRUE)) |> ggplot(aes(x=music_genre,y=popularity))+geom_boxplot() + labs(x="Music Genre",y="Popularity Ratings")+theme_bw()
+```

@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "Music Genres"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Box Plot"
+      - href: index2.qmd
+        text: "Scatter Plot"     
+      
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

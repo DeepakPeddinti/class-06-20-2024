@@ -1,0 +1,29 @@
+---
+title: "Music Genres Energy and Danceability"
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+```
+
+```{r}
+#| message: false
+x<-read_csv(file="data/music_genre.csv", show_col_types=FALSE)
+```
+
+```{r}
+x |>
+  filter(music_genre %in%c("Rock", "Classical", "Jazz", "Country")) |>
+  ggplot(aes(x = energy, y = danceability, color = music_genre)) +
+  scale_color_viridis_d() +
+  geom_point(alpha = 0.2) +
+  labs(title = "Music Genre Energy and Danceability",
+       x = "Energy",
+       y = "Danceability",
+       color = "Music Genre")
+```
+
